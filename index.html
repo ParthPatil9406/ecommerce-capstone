@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aperture Storefront</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="navbar__brand" href="index.html">Aperture</a>
+  <div class="navbar__links">
+    <a href="index.html">Catalog</a>
+    <a href="cart.html">Cart<span id="cartCount" class="cart-badge" hidden>0</span></a>
+    <a id="adminLink" href="admin.html" hidden>Admin</a>
+    <div id="authArea"></div>
+    <button class="btn-ghost" id="themeToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="catalog-toolbar">
+    <input type="search" id="catalogSearch" class="catalog-search" placeholder="Search products…" aria-label="Search products">
+    <select id="catalogSort" class="catalog-sort" aria-label="Sort by">
+      <option value="default">Sort: default</option>
+      <option value="price-asc">Price: low to high</option>
+      <option value="price-desc">Price: high to low</option>
+      <option value="rating-desc">Rating: highest first</option>
+    </select>
+  </div>
+
+  <div id="catalogTabs" class="catalog-tabs" role="tablist"></div>
+
+  <div id="catalogSkeleton" class="catalog-skeleton">
+    <div class="skeleton-card"></div><div class="skeleton-card"></div>
+    <div class="skeleton-card"></div><div class="skeleton-card"></div>
+  </div>
+
+  <div id="catalogError" class="error-banner" hidden>
+    <span class="error-banner__message">Something went wrong.</span>
+    <button id="catalogRetry" class="error-banner__retry" type="button">Retry</button>
+  </div>
+
+  <div id="catalogGrid" class="catalog-grid" hidden></div>
+</main>
+
+<script type="module">
+  import './js/app.js';
+  import { initCatalog } from './js/products.js';
+  initCatalog();
+</script>
+</body>
+</html>

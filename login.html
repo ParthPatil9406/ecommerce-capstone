@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign in — Aperture Storefront</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="navbar__brand" href="index.html">Aperture</a>
+  <div class="navbar__links">
+    <a href="index.html">Catalog</a>
+    <a href="cart.html">Cart<span id="cartCount" class="cart-badge" hidden>0</span></a>
+    <a id="adminLink" href="admin.html" hidden>Admin</a>
+    <div id="authArea"></div>
+    <button class="btn-ghost" id="themeToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <div class="panel" style="max-width: 400px; margin: var(--space-6) auto;">
+    <h1 style="font-family: var(--font-display); font-size: var(--step-2); margin-top:0;">Sign in</h1>
+    <p style="color: var(--text-muted); font-size: .875rem;">
+      This is a simulated login — any username works, no password needed.
+      Sign in as <strong>admin</strong> to unlock the admin panel.
+    </p>
+    <form id="loginForm" class="auth-form">
+      <input id="loginUsername" placeholder="Username" required>
+      <button class="product-card__add" type="submit">Sign in</button>
+    </form>
+  </div>
+</main>
+
+<script type="module">
+  import './js/app.js';
+  import { login } from './js/auth.js';
+  import { renderNav } from './js/app.js';
+
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    try {
+      login(document.getElementById('loginUsername').value);
+      renderNav();
+      location.href = 'index.html';
+    } catch (err) {
+      alert(err.message);
+    }
+  });
+</script>
+</body>
+</html>

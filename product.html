@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Product — Aperture Storefront</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="navbar">
+  <a class="navbar__brand" href="index.html">Aperture</a>
+  <div class="navbar__links">
+    <a href="index.html">Catalog</a>
+    <a href="cart.html">Cart<span id="cartCount" class="cart-badge" hidden>0</span></a>
+    <a id="adminLink" href="admin.html" hidden>Admin</a>
+    <div id="authArea"></div>
+    <button class="btn-ghost" id="themeToggle" type="button">Dark mode</button>
+  </div>
+</header>
+
+<main class="container">
+  <div id="productDetail" class="panel"></div>
+</main>
+
+<script type="module">
+  import './js/app.js';
+  import { initProductDetail } from './js/products.js';
+  initProductDetail();
+</script>
+</body>
+</html>
