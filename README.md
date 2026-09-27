@@ -1,3 +1,12 @@
+Live Demo
+Add your deployed URL here:
+
+https://novamart24.netlify.app/
+
+📦 GitHub Repository
+Add your GitHub repository here:
+
+https://github.com/ParthPatil9406/ecommerce-capstone/edit/main/README.md
 # Aperture Storefront
 
 A multi-page e-commerce capstone: live product catalog, product detail
